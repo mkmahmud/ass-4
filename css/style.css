@@ -102,16 +102,14 @@
      transform:
          translate3d(15px, -15px, 50px) rotateY(-5deg) rotateX(5deg);
      filter:
-         brightness(1.1)   drop-shadow(0 30px 40px rgba(128, 0, 255, 0.4));
+         brightness(1.1) drop-shadow(0 30px 40px rgba(128, 0, 255, 0.4));
  }
 
  .hero-image:hover img {
-    transform:
-    translate3d(0px, 0px, 0px) rotateY(0deg) rotateX(0deg);
-    filter:
-         brightness(1)   
-
-
+     transform:
+         translate3d(0px, 0px, 0px) rotateY(0deg) rotateX(0deg);
+     filter:
+         brightness(1)
  }
 
  .hero-image::before,
@@ -148,32 +146,52 @@
      opacity: 0;
  }
 
+ /* Skills */
+ .skill-card {
+     transform: perspective(1000px) rotateY(0deg);
+     transition: transform 0.6s ease, background-color 0.3s ease;
+ }
+
+ .skill-card:hover {
+     transform: perspective(1000px) rotateY(15deg);
+ }
+
+ .skill-icon {
+     transition: transform 0.3s ease, color 0.3s ease;
+ }
+
+ .skill-card:hover .skill-icon {
+     transform: scale(1.2) rotate(15deg);
+     color: #ff79c6;
+ }
+
  /* About Us */
  .card-3d {
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
+     perspective: 1000px;
+     transform-style: preserve-3d;
+     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+ }
 
-  .card-3d:hover {
-    transform: rotateY(15deg) rotateX(10deg) scale(1.1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-  }
+ .card-3d:hover {
+     transform: rotateY(15deg) rotateX(10deg) scale(1.1);
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+ }
 
-  .card-3d h3, .card-3d p {
-    transition: color 0.3s ease-in-out;
-  }
+ .card-3d h3,
+ .card-3d p {
+     transition: color 0.3s ease-in-out;
+ }
 
-  .active-card {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: rotateY(15deg) rotateX(10deg) scale(1.1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-  }
+ .active-card {
+     background-color: rgba(255, 255, 255, 0.2);
+     transform: rotateY(15deg) rotateX(10deg) scale(1.1);
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+ }
 
-  .active-card h3 {
-    color: #a855f7;
-  }
+ .active-card h3 {
+     color: #a855f7;
+ }
 
-  .active-card p {
-    color: #f3f4f6;
-  }
+ .active-card p {
+     color: #f3f4f6;
+ }
