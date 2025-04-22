@@ -33,81 +33,147 @@
 
  /* Banner Animation */
  @keyframes wave {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-20deg); }
-    75% { transform: rotate(20deg); }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  .animate-wave {
-    animation: wave 2s infinite;
-    transform-origin: 70% 70%;
-  }
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out;
-  }
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient 3s ease infinite;
-  }
+
+     0%,
+     100% {
+         transform: rotate(0deg);
+     }
+
+     25% {
+         transform: rotate(-20deg);
+     }
+
+     75% {
+         transform: rotate(20deg);
+     }
+ }
+
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(20px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ @keyframes gradient {
+     0% {
+         background-position: 0% 50%;
+     }
+
+     50% {
+         background-position: 100% 50%;
+     }
+
+     100% {
+         background-position: 0% 50%;
+     }
+ }
+
+ .animate-wave {
+     animation: wave 2s infinite;
+     transform-origin: 70% 70%;
+ }
+
+ .animate-fade-in {
+     animation: fadeIn 1s ease-out;
+ }
+
+ .animate-gradient {
+     background-size: 200% 200%;
+     animation: gradient 3s ease infinite;
+ }
 
 
-  /* hero-image */
-  .hero-image {
-    position: relative;
+ /* hero-image */
+ .hero-image {
+     position: relative;
+     perspective: 1000px;
+ }
+
+ .hero-image img {
+     transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+     transform-style: preserve-3d;
+     backface-visibility: hidden;
+     transform:
+         translate3d(15px, -15px, 50px) rotateY(-5deg) rotateX(5deg);
+     filter:
+         brightness(1.1)   drop-shadow(0 30px 40px rgba(128, 0, 255, 0.4));
+ }
+
+ .hero-image:hover img {
+    transform:
+    translate3d(0px, 0px, 0px) rotateY(0deg) rotateX(0deg);
+    filter:
+         brightness(1)   
+
+
+ }
+
+ .hero-image::before,
+ .hero-image::after {
+     content: '';
+     position: absolute;
+     inset: -10px;
+     background: linear-gradient(45deg,
+             rgb(168, 85, 247, 0.3),
+             rgb(236, 72, 153, 0.3));
+     border-radius: 1.5rem;
+     z-index: -1;
+     opacity: 0;
+     transition: all 0.6s ease;
+
+     opacity: 0.4;
+     transform: translate3d(10px, -10px, -30px);
+ }
+
+ .hero-image::before {
+     filter: blur(20px);
+     opacity: 0.8;
+     transform: translate3d(-10px, 10px, -50px);
+ }
+
+ .hero-image:hover::before {
+
+     opacity: 0;
+
+ }
+
+ .hero-image:hover::after {
+
+     opacity: 0;
+ }
+
+ /* About Us */
+ .card-3d {
     perspective: 1000px;
-  }
-
-  .hero-image img {
-    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
     transform-style: preserve-3d;
-    backface-visibility: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
 
-  .hero-image:hover img {
-    transform: 
-      translate3d(15px, -15px, 50px)
-      rotateY(-5deg)
-      rotateX(5deg);
-    filter: 
-      brightness(1.1)
-      contrast(1.1)
-      drop-shadow(0 30px 40px rgba(128, 0, 255, 0.4));
+  .card-3d:hover {
+    transform: rotateY(15deg) rotateX(10deg) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   }
 
-  .hero-image::before,
-  .hero-image::after {
-    content: '';
-    position: absolute;
-    inset: -10px;
-    background: linear-gradient(
-      45deg,
-      rgb(168, 85, 247, 0.3),
-      rgb(236, 72, 153, 0.3)
-    );
-    border-radius: 1.5rem;
-    z-index: -1;
-    opacity: 0;
-    transition: all 0.6s ease;
+  .card-3d h3, .card-3d p {
+    transition: color 0.3s ease-in-out;
   }
 
-  .hero-image::before {
-    filter: blur(20px);
+  .active-card {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: rotateY(15deg) rotateX(10deg) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   }
 
-  .hero-image:hover::before {
-    opacity: 0.8;
-    transform: translate3d(-10px, 10px, -50px);
+  .active-card h3 {
+    color: #a855f7;
   }
 
-  .hero-image:hover::after {
-    opacity: 0.4;
-    transform: translate3d(10px, -10px, -30px);
+  .active-card p {
+    color: #f3f4f6;
   }
