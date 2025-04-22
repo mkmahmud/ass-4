@@ -1,0 +1,32 @@
+ /* Import Roboto Font */
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+ /* Smooth Scroll */
+ html { 
+     font-family: 'Roboto', sans-serif;
+ }
+
+ /* Gradient Effect on Banner */
+ .gradient-bg {
+     background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://via.placeholder.com/1500x800');
+     background-size: cover;
+     background-position: center;
+ }
+
+ /* Hover Effects for Cards */
+ .hover-card:hover {
+     transform: scale(1.05);
+     transition: transform 0.3s ease;
+ }
+
+ /* Hide mobile menu by default */
+ .mobile-menu {
+     display: none;
+ }
+
+ /* Show mobile menu when active */
+ .mobile-menu.active {
+     display: flex;
+     padding-top: 20px;
+ }
+ 
