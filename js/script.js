@@ -41,4 +41,20 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  
+  // Testimonial
+  const carousel = document.getElementById('testimonial-carousel');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  let scrollAmount = 0;
+
+  nextBtn.addEventListener('click', () => {
+    scrollAmount += carousel.offsetWidth / 2;
+    if (scrollAmount >= carousel.scrollWidth) scrollAmount = 0;
+    carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+  });
+
+  prevBtn.addEventListener('click', () => {
+    scrollAmount -= carousel.offsetWidth / 2;
+    if (scrollAmount < 0) scrollAmount = carousel.scrollWidth - carousel.offsetWidth;
+    carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+  });
